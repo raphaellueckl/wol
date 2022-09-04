@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hehe</title>
+  </head>
+
+  <body>
+    <input /><button>Go!</button>
+
+    <script>
+      const submit = () => {
+        const go = document.querySelector("input").value;
+        fetch("/go", {
+          method: "POST",
+          headers: {
+            go,
+          },
+        });
+      };
+      document.querySelector("button").addEventListener("click", submit);
+      document.querySelector("input").addEventListener("keyup", ({ key }) => {
+        if (key === "Enter") {
+          submit();
+        }
+      });
+    </script>
+  </body>
+</html>
